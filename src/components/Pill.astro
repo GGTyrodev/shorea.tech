@@ -1,0 +1,78 @@
+---
+type NormalPillProps = {
+	label: string;
+	variant?: 'normal';
+	href?: never;
+	external?: never;
+};
+
+type NavigationPillProps = {
+	label: string;
+	variant: 'navigation';
+	href: string;
+	external?: boolean;
+};
+
+type Props = NormalPillProps | NavigationPillProps;
+
+const props = Astro.props;
+const { label, variant = 'normal' } = props;
+---
+
+{
+	variant === 'navigation' && 'href' in props ? (
+		<a
+			class="pill navigation"
+			href={props.href}
+			target={props.external ? '_blank' : undefined}
+			rel={props.external ? 'noreferrer' : undefined}
+		>
+			{label}<span aria-hidden="true">&nearr;</span>
+		</a>
+	) : (
+		<span class="pill normal">{label}</span>
+	)
+}
+
+<style>
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid rgba(25, 25, 22, 0.24);
+		border-radius: 999px;
+		white-space: nowrap;
+	}
+
+	.normal {
+		padding: 6px 11px;
+		font-size: 11px;
+	}
+
+	.navigation {
+		padding: 12px 18px;
+		font-size: 13px;
+		font-weight: 750;
+		text-decoration: none;
+		transition:
+			color 160ms ease,
+			background 160ms ease,
+			transform 160ms ease;
+	}
+
+	.navigation span {
+		margin-left: 9px;
+	}
+
+	.navigation:hover,
+	.navigation:focus-visible {
+		color: var(--color-paper);
+		background: var(--color-ink);
+		transform: translateY(-2px);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.navigation {
+			transition: none;
+		}
+	}
+</style>
