@@ -3,35 +3,42 @@ import Layout from "../layouts/Layout.astro";
 import "../styles/home.css";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
 import Pill from "../components/Pill.astro";
+import Brand from "../components/Brand.astro";
+import ProfileCard from "../components/ProfileCard.astro";
+import danaImage from "../assets/dana-appr.png";
+import ovoImage from "../assets/ovo-appr.png";
 import type { WorkItem } from "../types/portfolio";
 
 const work = [
   {
     company: "DANA",
     url: "https://www.dana.id/",
-    role: "Senior Software Engineer",
+    role: "Senior Software Development Engineer (iOS & Web)",
     period: "October 2019 - May 2026",
     accent: "blue",
     summary:
-      "Contributed to customer-facing financial experiences in a cross-functional product team. Replace this example with your exact, approved scope.",
-    tags: ["Product engineering", "Reliability", "Fintech"],
+      "Contributed to DANA’s consumer fintech platform across iOS and mobile web, focusing on application performance, core user systems, modular architecture, and engineering productivity.",
+    tags: ["iOS Engineering", "Performance", "Architecture", "Fintech"],
+    image: danaImage.src,
     contribution:
-      "Add the feature, system, or problem you personally worked on.",
-    outcome: "Add an approved result, public metric, or qualitative outcome.",
+      "Led four engineers responsible for authentication and user systems. Optimized startup flows, modularized shared capabilities, and improved CI/CD with Jenkins and Fastlane.",
+    outcome:
+      "Reduced application startup time from approximately 12 seconds to 4-5 seconds while improving maintainability and release reliability. And a lot more.",
   },
   {
     company: "OVO",
     url: "https://www.ovo.id/",
-    role: "Software Engineer",
-    period: "Add your dates",
+    role: "iOS Developer",
+    period: "February 2016 – October 2019",
     accent: "purple",
     summary:
-      "Worked with engineering and product partners on dependable digital payment journeys. Replace this example with your exact, approved scope.",
-    tags: ["Payments", "Collaboration", "Scale"],
+      "Contributed to OVO’s iOS application during its early growth into a large-scale digital wallet, helping expand the product while strengthening its technical foundations.",
+    tags: ["iOS Engineering", "MVVM", "Reactive Programming", "Fintech"],
+    image: ovoImage.src,
     contribution:
-      "Describe your ownership without claiming the work of the wider team.",
+      "Built and maintained product features, supported the migration from MVC to MVVM, adopted reactive programming patterns, and integrated services such as AppsFlyer.",
     outcome:
-      "Use numbers only when they are public or approved for disclosure.",
+      "Improved code organization, maintainability, and scalability as the application’s features and user base expanded.",
   },
 ] satisfies WorkItem[];
 ---
@@ -41,10 +48,7 @@ const work = [
   description="Selected fintech work, engineering case studies, and independent projects."
 >
   <header class="site-header">
-    <a class="brand" href={`${import.meta.env.BASE_URL}/`} aria-label="Home">
-      <span class="brand-mark">S</span>
-      <span>shorea / portfolio</span>
-    </a>
+    <Brand />
     <nav aria-label="Main navigation">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -54,20 +58,19 @@ const work = [
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
-      <div class="eyebrow">
-        <span class="status-dot"></span> Software engineer in Indonesia
-      </div>
+      <ProfileCard
+        position="Senior Software Developement Engineer (iOS / H5)"
+      />
       <h1 id="hero-title">
-        I build dependable products for <em>everyday moments.</em>
+        I build dependable products with efficiency in mind, <em
+          >for everyday moments.</em
+        >
       </h1>
       <div class="hero-footer">
         <p>
           A portfolio of product engineering work across fintech, payments, and
           independent experiments.
         </p>
-        <a class="round-link" href="#work" aria-label="View selected work"
-          >&darr;</a
-        >
       </div>
     </section>
 
@@ -76,15 +79,11 @@ const work = [
         <p class="section-number">01</p>
         <div>
           <p class="kicker">Selected work</p>
-          <h2 id="work-title">Experience, explained clearly.</h2>
+          <h2 id="work-title">
+            Experience building apps with tens of millions of users.
+          </h2>
         </div>
       </div>
-
-      <p class="template-note">
-        <strong>Template note:</strong> replace the example copy below with details
-        you are allowed to share. The visual placeholders can hold approved screenshots,
-        diagrams, or public marketing images.
-      </p>
 
       <div class="work-list">
         {
@@ -105,17 +104,24 @@ const work = [
       </div>
       <div class="about-grid">
         <p class="about-lead">
-          I care about the space between a technically correct solution and a
-          product people can depend on.
+          I care about making complex systems faster, easier to change, and
+          easier for engineering teams to deliver.
         </p>
         <div class="about-copy">
           <p>
-            Write two short paragraphs about how you work: the problems you
-            enjoy, how you collaborate, and the engineering qualities you value.
+            I enjoy working on problems where architecture meets real-world
+            pressure: slow startup paths, tightly coupled systems, fragile
+            delivery workflows, and features that must perform reliably at
+            fintech scale. At DANA, that meant helping reduce startup time from
+            roughly 12 seconds to 4-5 seconds and modernizing systems without
+            disrupting the product around them.
           </p>
           <p>
-            Keep the biography human and specific. Your work cards already cover
-            technologies; this section should explain your point of view.
+            I work collaboratively, making constraints visible, reviewing
+            decisions openly, and leaving code easier for the next engineer to
+            understand. Whether I'm leading a team, modularizing a codebase, or
+            improving CI/CD, I value clarity, measurable outcomes, and practical
+            engineering that helps teams deliver with confidence.
           </p>
         </div>
       </div>

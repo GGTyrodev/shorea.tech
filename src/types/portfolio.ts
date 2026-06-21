@@ -10,4 +10,5 @@ export interface WorkItem {
 	tags: string[];
 	contribution: string;
 	outcome: string;
+	image: string;
 }

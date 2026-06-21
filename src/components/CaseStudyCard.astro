@@ -11,6 +11,7 @@ interface Props {
 const { item, index, total } = Astro.props;
 const position = String(index + 1).padStart(2, '0');
 const count = String(total).padStart(2, '0');
+const hasImage = item.image.trim().length > 0;
 ---
 
 <article class={`case-study ${item.accent}`}>
@@ -40,19 +41,28 @@ const count = String(total).padStart(2, '0');
 		<Pill label="Visit public product" variant="navigation" href={item.url} external />
 	</div>
 
-	<div class="case-visual" aria-label={`Screenshot placeholder for ${item.company}`}>
-		<div class="visual-label">Approved visual goes here</div>
-		<div class="phone">
-			<div class="phone-bar"><span></span></div>
-			<div class="phone-content">
-				<div class="ui-brand">{item.company}</div>
-				<div class="ui-balance"></div>
-				<div class="ui-actions"><span></span><span></span><span></span></div>
-				<div class="ui-card"></div>
-				<div class="ui-lines"><span></span><span></span><span></span></div>
-			</div>
-		</div>
-		<p>Use a cropped screen or a sanitized architecture diagram.</p>
+	<div
+		class:list={['case-visual', { 'has-image': hasImage }]}
+		aria-label={!hasImage ? `Screenshot placeholder for ${item.company}` : undefined}
+	>
+		{hasImage ? (
+			<img src={item.image} alt={`${item.company} project screenshot`} loading="lazy" />
+		) : (
+			<>
+				<div class="visual-label">Approved visual goes here</div>
+				<div class="phone">
+					<div class="phone-bar"><span></span></div>
+					<div class="phone-content">
+						<div class="ui-brand">{item.company}</div>
+						<div class="ui-balance"></div>
+						<div class="ui-actions"><span></span><span></span><span></span></div>
+						<div class="ui-card"></div>
+						<div class="ui-lines"><span></span><span></span><span></span></div>
+					</div>
+				</div>
+				<p>Use a cropped screen or a sanitized architecture diagram.</p>
+			</>
+		)}
 	</div>
 </article>
 
@@ -177,6 +187,24 @@ const count = String(total).padStart(2, '0');
 		left: -30px;
 		width: 330px;
 		height: 330px;
+	}
+
+	.case-visual.has-image {
+		padding: 0;
+	}
+
+	.case-visual.has-image::before,
+	.case-visual.has-image::after {
+		display: none;
+	}
+
+	.case-visual > img {
+		display: block;
+		width: auto;
+		max-width: 100%;
+		height: 100%;
+		min-height: inherit;
+		object-fit: contain;
 	}
 
 	.blue .case-visual {
