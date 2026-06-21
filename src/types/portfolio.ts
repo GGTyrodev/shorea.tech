@@ -8,7 +8,6 @@ export interface WorkItem {
 	accent: WorkAccent;
 	summary: string;
 	tags: string[];
-	contribution: string;
-	outcome: string;
+	impact: string[];
 	image: string;
 }

@@ -17,28 +17,30 @@ const work = [
     period: "October 2019 - May 2026",
     accent: "blue",
     summary:
-      "Contributed to DANA’s consumer fintech platform across iOS and mobile web, focusing on application performance, core user systems, modular architecture, and engineering productivity.",
-    tags: ["iOS Engineering", "Performance", "Architecture", "Fintech"],
+      "Contributed to DANA's consumer fintech platform across iOS and mobile web, focusing on application performance, core user systems, modular architecture, and engineering productivity.",
+    tags: ["iOS Engineering", "Performance", "CI/CD", "Fintech"],
     image: danaImage.src,
-    contribution:
-      "Led four engineers responsible for authentication and user systems. Optimized startup flows, modularized shared capabilities, and improved CI/CD with Jenkins and Fastlane.",
-    outcome:
-      "Reduced application startup time from approximately 12 seconds to 4-5 seconds while improving maintainability and release reliability. And a lot more.",
+    impact: [
+      "Reduced iOS startup time from approximately 12 seconds to 4-5 seconds by profiling and redesigning initialization flows.",
+      "Led four engineers responsible for core authentication and user systems.",
+      "Established DANA's early iOS CI/CD process with Jenkins and Fastlane, targeting a 9-minute build, 1-minute test run, and 1-minute feedback loop.",
+    ],
   },
   {
     company: "OVO",
     url: "https://www.ovo.id/",
     role: "iOS Developer",
-    period: "February 2016 – October 2019",
+    period: "February 2016 - October 2019",
     accent: "purple",
     summary:
-      "Contributed to OVO’s iOS application during its early growth into a large-scale digital wallet, helping expand the product while strengthening its technical foundations.",
+      "Contributed to OVO's iOS application during its early growth into a large-scale digital wallet, helping expand the product while strengthening its technical foundations.",
     tags: ["iOS Engineering", "MVVM", "Reactive Programming", "Fintech"],
     image: ovoImage.src,
-    contribution:
-      "Built and maintained product features, supported the migration from MVC to MVVM, adopted reactive programming patterns, and integrated services such as AppsFlyer.",
-    outcome:
-      "Improved code organization, maintainability, and scalability as the application’s features and user base expanded.",
+    impact: [
+      "Helped develop and scale OVO's iOS application during its early growth.",
+      "Contributed to the migration from MVC to MVVM, improving maintainability and scalability.",
+      "Adopted reactive programming patterns and integrated services including AppsFlyer.",
+    ],
   },
 ] satisfies WorkItem[];
 ---
@@ -62,9 +64,7 @@ const work = [
         position="Senior Software Developement Engineer (iOS / H5)"
       />
       <h1 id="hero-title">
-        I build dependable products with efficiency in mind, <em
-          >for everyday moments.</em
-        >
+        Built and scaled apps <em>used by tens of millions of users.</em>
       </h1>
       <div class="hero-footer">
         <p>
@@ -80,7 +80,7 @@ const work = [
         <div>
           <p class="kicker">Selected work</p>
           <h2 id="work-title">
-            Experience building apps with tens of millions of users.
+            Experience across fintech and large-scale consumer systems
           </h2>
         </div>
       </div>
@@ -104,26 +104,33 @@ const work = [
       </div>
       <div class="about-grid">
         <p class="about-lead">
-          I care about making complex systems faster, easier to change, and
-          easier for engineering teams to deliver.
+          13+ years improving the performance, architecture, and delivery of
+          high-scale fintech products.
         </p>
-        <div class="about-copy">
-          <p>
-            I enjoy working on problems where architecture meets real-world
-            pressure: slow startup paths, tightly coupled systems, fragile
-            delivery workflows, and features that must perform reliably at
-            fintech scale. At DANA, that meant helping reduce startup time from
-            roughly 12 seconds to 4-5 seconds and modernizing systems without
-            disrupting the product around them.
-          </p>
-          <p>
-            I work collaboratively, making constraints visible, reviewing
-            decisions openly, and leaving code easier for the next engineer to
-            understand. Whether I'm leading a team, modularizing a codebase, or
-            improving CI/CD, I value clarity, measurable outcomes, and practical
-            engineering that helps teams deliver with confidence.
-          </p>
-        </div>
+        <ul class="about-evidence">
+          <li>
+            Reduced DANA's iOS startup time from approximately <strong
+              >12s to 4-5s</strong
+            >.
+          </li>
+          <li>
+            Led <strong>four engineers</strong> responsible for authentication
+            and user systems.
+          </li>
+          <li>
+            Helped evolve OVO's iOS architecture from <strong>MVC to MVVM</strong>
+            during rapid growth.
+          </li>
+          <li>
+            Established DANA's early iOS CI/CD process with Jenkins and Fastlane
+            around the <strong>9-1-1 efficiency target</strong>: 9-minute builds,
+            1-minute tests, and 1-minute feedback.
+          </li>
+          <li>
+            Drove modular development across multiple DANA capabilities, with
+            <strong>end-to-end ownership of the passkey module</strong>.
+          </li>
+        </ul>
       </div>
     </section>
 
